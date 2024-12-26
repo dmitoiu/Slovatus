@@ -3,8 +3,8 @@ D:\Dev\Console Apps\Slovatus\source\Slovatus\Slovatus.cpp(172,28): warning C4018
 D:\Dev\Console Apps\Slovatus\source\Slovatus\Slovatus.cpp(202,39): warning C4018: '<': signed/unsigned mismatch
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  1 of 1277 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  0 of 1277 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Slovatus.vcxproj -> D:\Dev\Console Apps\Slovatus\output\Slovatus\Win32\Release\Slovatus.exe
