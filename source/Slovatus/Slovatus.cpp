@@ -28,6 +28,7 @@
 #include <sstream>
 #include <map>
 #include <string>
+#include <bitset>
 #define CURL_STATICLIB
 #include <curl/curl.h>
 #include <json/json.h>
@@ -129,6 +130,12 @@ bool perform_get_request(const std::string& url, std::string& response) {
 
     if (res != CURLE_OK) {
         std::cerr << "CURL error: " << res << std::setw(2) << curl_easy_strerror(res) << std::endl;
+        return false;
+    }
+    long http_code = 0;
+    curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
+    if (http_code >= 400) {
+        std::cerr << "CURL HTTP error: " << http_code << std::endl;
         return false;
     }
 
@@ -265,10 +272,16 @@ bool follow_user(const std::string& username) {
 void manage_following() {
     int page = 1;
     int follow_count = 0;
+    const short MAX_PAGE = 35;
 
     while (follow_count < MAX_FOLLOWERS) {
         std::string url = GITHUB_API_URL + "/search/users?q=type:user+repos:>0+followers:>100&page=" + std::to_string(page);
         std::string response;
+
+        if(page == MAX_PAGE)
+        {
+	        page = 1;
+        }
 
         if (!perform_get_request(url, response)) {
             std::cerr << "Failed to fetch URL: " << url << ". Retrying..." << std::endl;
@@ -327,9 +340,29 @@ void manage_following() {
     }
 }
 
+std::string binary(std::string data)
+{
+    std::string result;
+    for (char c : data)
+        result += std::bitset<8>(c).to_string() + " ";
+    return result;
+}
+
+void start()
+{
+    std::cout << "Press any key to start the bot...";
+    std::cin.get();
+}
+
+
 int main()
 {
-	std::cout << "Slovatus is running..." << std::endl;
+    char separator = '-';
+    std::cout << "Slovatus v1.0.0: GitHub Follow Bot" << std::endl;
+    std::cout << std::string(71, separator) << std::endl;
+    std::cout << binary("Slovatus") << std::endl;
+    std::cout << std::string(71, separator) << std::endl;
+    start();
     loadConfig();
     curl_global_init(CURL_GLOBAL_ALL); // Initialize CURL globally
     // Launch a thread to follow users

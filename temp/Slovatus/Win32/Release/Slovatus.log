@@ -1,9 +1,10 @@
 ﻿  Slovatus.cpp
-D:\Dev\Console Apps\Slovatus\source\Slovatus\Slovatus.cpp(190,28): warning C4018: '<': signed/unsigned mismatch
-D:\Dev\Console Apps\Slovatus\source\Slovatus\Slovatus.cpp(220,39): warning C4018: '<': signed/unsigned mismatch
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+D:\Dev\Console Apps\Slovatus\source\Slovatus\Slovatus.cpp(197,28): warning C4018: '<': signed/unsigned mismatch
+D:\Dev\Console Apps\Slovatus\source\Slovatus\Slovatus.cpp(227,39): warning C4018: '<': signed/unsigned mismatch
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  All 1277 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  4 of 1290 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    16 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Slovatus.vcxproj -> D:\Dev\Console Apps\Slovatus\output\Slovatus\Win32\Release\Slovatus.exe
